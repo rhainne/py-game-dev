@@ -16,15 +16,16 @@ background = pygame.image.load(background_img_filename).convert()
 mouse_cursor = pygame.image.load(mouse_img_filename).convert_alpha()
 
 while True:
-    for event in pygame.event.get():
+    for event in pygame.event.get(): # retrieve all items and remove them from the queue
         if event.type == QUIT:
             pygame.quit()
             exit()
 
-        screen.blit(background, (0,0))
+        screen.blit(background, (0, 0))
 
-        # x, y = pygame.mouse.get_pos()
-        # x -= mouse_cursor.get_width() / 2
-        # y -= mouse_cursor.get_heigth() / 2
+        x, y = pygame.mouse.get_pos()
+        x -= mouse_cursor.get_width() / 2
+        y -= mouse_cursor.get_height() / 2
+        screen.blit(mouse_cursor, (x, y))
 
-        # screen.display.update()
+        pygame.display.update()

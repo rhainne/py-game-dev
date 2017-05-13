@@ -1,6 +1,7 @@
 
 import sys
-from tank import Tank
+
+from basics_covering.tank import Tank
 
 print(sys.version)
 

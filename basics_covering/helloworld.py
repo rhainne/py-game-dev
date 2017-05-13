@@ -4,8 +4,8 @@ import pygame
 from pygame.locals import *
 from sys import exit
 
-background_img_filename = './assets/sushiplate.jpg'
-mouse_img_filename = './assets/fugu.jpg'
+background_img_filename = '../assets/sushiplate.jpg'
+mouse_img_filename = '../assets/fugu.jpg'
 
 pygame.init()
 

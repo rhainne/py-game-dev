@@ -3,7 +3,7 @@ import pygame
 from pygame.locals import *
 from sys import exit
 
-background_image_filename = './assets/Valkyrie_Wallpaper.jpg'
+background_image_filename = '../assets/Valkyrie_Wallpaper.jpg'
 
 pygame.init()
 
@@ -21,10 +21,10 @@ pygame.event.set_blocked(MOUSEMOTION)
 # pygame.event.set_blocked(None) # You can also unblock all events
 # pygame.event.set_allowed(None) # Or block them
 
-my_event = pygame.event.Event(KEYDOWN, key=K_SPACE, mod=0, unicode=u' ') # you can also pass as dictionary
+my_event = pygame.event.Event(KEYDOWN, key=K_SPACE, mod=0, unicode=u' ')  # you can also pass as dictionary
 pygame.event.post(my_event)
 
-CATONKEYBOARD = USEREVENT+1
+CATONKEYBOARD = USEREVENT + 1
 my_event = pygame.event.Event(CATONKEYBOARD, message="Bad cat!")
 pygame.event.post(my_event)
 
@@ -59,10 +59,11 @@ while True:
                 pygame.quit()
                 exit()
 
-        x+= move_x
-        y+= move_y
+        x += move_x
+        y += move_y
 
         screen.fill((0, 0, 0))
         screen.blit(background, (x, y))
 
         pygame.display.update()
+

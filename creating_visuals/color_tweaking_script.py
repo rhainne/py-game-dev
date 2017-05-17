@@ -16,12 +16,12 @@ def create_scales(height):
     red_scale_surface = pygame.surface.Surface(SCREEN_SIZE)
     green_scale_surface = pygame.surface.Surface(SCREEN_SIZE)
     blue_scale_surface = pygame.surface.Surface(SCREEN_SIZE)
-    for x in range(l_width):
-        c = int((x/float(l_width - 1)) * 255.)
+    for x_coord in range(l_width):
+        c = int((x_coord/float(l_width - 1)) * 255.)
         red = (c, 0, 0)
         green = (0, c, 0)
         blue = (0, 0, c)
-        line_rect = Rect(x, 0, 1, height)
+        line_rect = Rect(x_coord, 0, 1, height)
         pygame.draw.rect(red_scale_surface, red, line_rect)
         pygame.draw.rect(green_scale_surface, green, line_rect)
         pygame.draw.rect(blue_scale_surface, blue, line_rect)
@@ -35,7 +35,11 @@ while True:
         if event.type == QUIT:
             pygame.quit()
             exit()
-
+        if event.type == KEYDOWN:
+            if event.key == K_ESCAPE:
+                pygame.quit()
+                exit()
+                
     screen.fill((0, 0, 0))
 
     # Draw the scales to the screen

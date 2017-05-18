@@ -53,7 +53,7 @@ while True:
     # If the mouse was pressed on one of the sliders, adjust the color component
     if pygame.mouse.get_pressed()[0]:
         for component in range(3):
-            if y > component * SCALE_HEIGHT and y < (component + 1) * SCALE_HEIGHT:
+            if component * SCALE_HEIGHT < y < (component + 1) * SCALE_HEIGHT:
                 color[component] = int((x / float(l_width - 1)) * 255.)
             pygame.display.set_caption("PyGame Color Test - " + str(tuple(color)))
 

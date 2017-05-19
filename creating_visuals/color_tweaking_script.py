@@ -1,10 +1,11 @@
 
 import pygame
 from pygame.locals import *
-from sys import exit
+
+from various_functions.pygame_custom_functions import exit_handler
 
 l_width = 1280
-l_height = 800
+l_height = 600
 SCREEN_SIZE = (l_width, l_height)
 SCALE_HEIGHT = 100
 
@@ -34,12 +35,10 @@ color = [127, 127, 127]
 while True:
     for event in pygame.event.get():
         if event.type == QUIT:
-            pygame.quit()
-            exit()
+            exit_handler()
         if event.type == KEYDOWN:
             if event.key == K_ESCAPE:
-                pygame.quit()
-                exit()
+                exit_handler()
                 
     screen.fill((0, 0, 0))
 

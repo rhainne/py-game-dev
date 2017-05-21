@@ -1,7 +1,6 @@
 
 import pygame
 from pygame.locals import *
-
 from various_functions.pygame_custom_functions import *
 
 l_width = 1280
@@ -31,10 +30,6 @@ def create_scales(height):
 
 red_scale, green_scale, blue_scale = create_scales(SCALE_HEIGHT)
 color = [127, 127, 127]
-
-fireball_orange = (221, 99, 20)
-print(fireball_orange)
-print(scale_color(fireball_orange, .5))
 
 while True:
     for event in pygame.event.get():

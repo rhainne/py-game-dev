@@ -1,4 +1,5 @@
 import pygame
+from pygame.locals import *
 
 
 def scale_color(color, scale):
@@ -14,6 +15,14 @@ def scale_color(color, scale):
 def exit_handler():
     pygame.quit()
     exit()
+
+
+def event_handler(event):
+    if event.type == QUIT:
+        exit_handler()
+    if event.type == KEYDOWN:
+        if event.key == K_ESCAPE:
+            exit_handler()
 
 
 # Saturate color is used to keep always valid 0-255 color values.

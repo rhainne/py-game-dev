@@ -2,10 +2,10 @@ import pygame
 from pygame.locals import *
 
 
-def scale_color(color, scale):
+def scale_color(i_color, scale):
     if scale < 0:
         raise ValueError('Exception in scale_color function. Color cannot be scalled by negative scale value.')
-    red, green, blue = color
+    red, green, blue = i_color
     red = int(red*scale)
     green = int(green*scale)
     blue = int(blue*scale)
@@ -26,8 +26,8 @@ def event_handler(event):
 
 
 # Saturate color is used to keep always valid 0-255 color values.
-def saturate_color(color):
-    red, green, blue = color
+def saturate_color(i_color):
+    red, green, blue = i_color
     red = min(red, 255)
     green = min(green, 255)
     blue = min(blue, 255)

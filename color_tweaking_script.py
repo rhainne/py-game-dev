@@ -1,10 +1,7 @@
 
-import pygame
-from pygame.locals import *
 from various_functions.pygame_custom_functions import *
 
-l_width = 1280
-l_height = 600
+l_width, l_height = 1280, 800
 SCREEN_SIZE = (l_width, l_height)
 SCALE_HEIGHT = 100
 

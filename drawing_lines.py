@@ -14,7 +14,7 @@ while True:
             points.append(event.pos)
             if len(points) > 100:
                 del points[0]
-    screen.fill((255, 255, 255))
+    screen.fill((0, 0, 0))
     if len(points) > 1:
-        pygame.draw.lines(screen, (0, 255, 0), False, points, 2)
+        pygame.draw.lines(screen, (255, 0, 0), False, points, 2)
     pygame.display.update()

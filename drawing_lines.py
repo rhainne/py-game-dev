@@ -1,5 +1,11 @@
 from various_functions.pygame_custom_functions import *
 
+"""
+lines have a jagged appearance.
+This is because a pixel can only be drawn at a coordinate on a grid, which may not lie directly underneath a
+line if it is not horizontal or vertical. This effect is called ALIASING.
+"""
+
 pygame.init()
 
 l_width, l_height = 1280, 800
@@ -16,5 +22,6 @@ while True:
                 del points[0]
     screen.fill((0, 0, 0))
     if len(points) > 1:
-        pygame.draw.lines(screen, (255, 0, 0), False, points, 2)
+        # pygame.draw.lines(screen, (255, 0, 0), False, points, 2)
+        pygame.draw.aalines(screen, (255, 0, 0), False, points, 1)
     pygame.display.update()

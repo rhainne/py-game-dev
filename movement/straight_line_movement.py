@@ -1,8 +1,9 @@
-
+import sys
+sys.path.insert(0, 'C:/Users/Vanadys3/Git/py-game-dev/')
 from various_functions.pygame_custom_functions import *
 
-background_image_filename = 'assets/chess1280x800.png'
-sprite_image_filename = 'assets/pawn.png'
+background_image_filename = '../assets/chess1280x800.png'
+sprite_image_filename = '../assets/pawn.png'
 l_width, l_height = 1280, 800
 
 pygame.init()

@@ -1,7 +1,9 @@
+import sys
+sys.path.insert(0, 'C:/Users/Vanadys3/Git/py-game-dev/')
 from various_functions.pygame_custom_functions import *
 
-background_image_filename = 'assets/chess1280x800.png'
-sprite_image_filename = 'assets/pawn.png'
+background_image_filename = '../assets/chess1280x800.png'
+sprite_image_filename = '../assets/pawn.png'
 
 l_width, l_height = 800, 600
 
@@ -15,6 +17,9 @@ sprite = pygame.image.load(sprite_image_filename).convert_alpha()
 clock = pygame.time.Clock()
 x, y = 100, 100
 speed_x, speed_y = 133, 170
+
+v = (10.0, 20.0)
+print(v)
 
 while True:
     for event in pygame.event.get():

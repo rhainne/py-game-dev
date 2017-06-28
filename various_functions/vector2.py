@@ -11,7 +11,7 @@ class Vector2(object):
     __slots__ = ('_v',)
     _gameobjects_vector = 2
 
-    def __init__(self, x = 0., y = 0.):
+    def __init__(self, x=0., y=0.):
         """Initialise a vector
         @type x: number
         @param x: The x value (defaults to 0.), or a container of 2 values
@@ -196,7 +196,7 @@ class Vector2(object):
             return Vector2.from_floats(x * rhs, y * rhs)
 
     def __imul__(self, rhs):
-        """Multiplys this vector with a scalar or a vector-list object."""
+        """Multiplies this vector with a scalar or a vector-list object."""
         if hasattr(rhs, "__getitem__"):
             xx, yy = rhs
             v = self._v
@@ -291,7 +291,7 @@ class Vector2(object):
         """Normalises this vector."""
         v = self._v
         x, y = v
-        l = sqrt(x * x +y * y)
+        l = sqrt(x * x + y * y)  # Magnitude
         try:
             v[0] /= l
             v[1] /= l

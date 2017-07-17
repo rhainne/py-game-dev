@@ -1,4 +1,4 @@
-# py-game-dev
+# Python Game Development
 
 Repository to hold all my progress with the book Beginning Python Games Development, 2nd Edition by Harrison Kinsley and Will McGugan.
 

@@ -22,13 +22,13 @@ while True:
     pressed_keys = pygame.key.get_pressed()
     key_direction = Vector2(0, 0)
     if pressed_keys[K_LEFT]:
-        key_direction.x = -1
+        key_direction.x = - 1
     elif pressed_keys[K_RIGHT]:
-        key_direction.x = +1
+        key_direction.x = + 1
     if pressed_keys[K_UP]:
-        key_direction.y = -1
+        key_direction.y = - 1
     elif pressed_keys[K_DOWN]:
-        key_direction.y = +1
+        key_direction.y = + 1
 
     key_direction.normalize()
 

@@ -10,3 +10,5 @@ I will develop some little scripts to implement the lessons I learn and could be
 - Classic movement of a sprite to the target using rotation and direction from source to target(mouse position)
 - Precalculation of direction vectors in key_vector_movement.py script (Done in key_vector_mvmnt_opt.py)
 
+Resources
+- Tiled Map Editor: http://www.mapeditor.org/

@@ -37,4 +37,5 @@ while True:
 
     distance_moved = time_passed_seconds * speed
     position += heading * distance_moved
+
     pygame.display.update()

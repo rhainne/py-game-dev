@@ -21,7 +21,7 @@ clock = pygame.time.Clock()
 sprite_pos = Vector2(200, 150)
 sprite_speed = 300
 sprite_rotation = 0
-sprite_rotation_speed = 360 # Degrees per second
+sprite_rotation_speed = 360  # Degrees per second
 
 while True:
     for event in pygame.event.get():

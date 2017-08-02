@@ -14,3 +14,4 @@ I will develop some little scripts to implement the lessons I learn and could be
 Resources
 - Tiled Map Editor: http://www.mapeditor.org/
 - Pygame tutorial by Eli Bendersky: http://eli.thegreenplace.net/tag/pygame-tutorial
+- Character Sprite Generation: http://gaurav.munjal.us/Universal-LPC-Spritesheet-Character-Generator/

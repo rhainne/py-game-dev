@@ -60,3 +60,10 @@ def format_number(n, accuracy=6):
         str_n = "0"
     # str_n = str_n.replace("-0", "0")
     return str_n
+
+
+def load_sprite_list(sprite_list):
+    sprites = []
+    for sprite in sprite_list:
+        sprites.append(pygame.image.load(sprite).convert_alpha())
+    return sprites

@@ -21,6 +21,7 @@ clock = pygame.time.Clock()
 
 sprite_pos = Vector2(200, 150)
 direction = Vector2(0, 0)
+destination = Vector2(0, 0)
 sprite_speed = 300
 sprite_rotation = 0
 sprite_rotation_speed = 360  # Degrees per second
@@ -32,10 +33,10 @@ while True:
         if event.type == MOUSEBUTTONDOWN:
             # Hacer que la cabeza del sprite apunte a destination
             # La cabeza del sprite es (sprite.get_size()[0] / 2, sprite.get_size()[1])
-
             destination = Vector2(*event.pos) - (Vector2(*sprite.get_size()) / 2)
             direction = Vector2.from_points(sprite_pos, destination)
             direction.normalize()
+            sprite = pygame.transform.rotate(sprite, 50)
 
     time_passed = clock.tick()
     time_passed_seconds = time_passed / 1000.0
@@ -43,6 +44,10 @@ while True:
     distance_moved = time_passed_seconds * sprite_speed
     sprite_pos += direction * distance_moved
 
+    # Compute to decide when to stop the sprite
+    if (destination.get_x() - 1 < sprite_pos.get_x() < destination.get_x() + 1) \
+            and (destination.get_y() - 1 < sprite_pos.get_y() < destination.get_y() + 1):
+        direction = Vector2(0, 0)  # This stops the sprite
     sprite_pos += direction * sprite_speed * time_passed_seconds
 
     screen.blit(background, (0, 0))

@@ -1,15 +1,17 @@
 import sys
-import glob
+import glob  # For the import of multiple assets
 sys.path.insert(0, 'C:/Users/Vanadys3/Git/py-game-dev/')
+sys.path.insert(0, '/home/rain/Git/py-game-dev/')
+sys.path.insert(0, 'C:/Users/rain_/PycharmProjects/py-game-dev')
 from various_functions.pygame_custom_functions import *
-from various_functions.vector2 import Vector2
 
 l_width, l_height = 1024, 720
 background_image_filename = '../assets/chess1280x800.png'
 knight_imgs = ['../assets/knight_sprite/Attack_1.png'
-                 , '../assets/knight_sprite/Dead_10.png'
-                 , '../assets/knight_sprite/JumpAttack_5.png'
-                 , '../assets/knight_sprite/Walk_10.png']
+               , '../assets/knight_sprite/Dead_10.png'
+               , '../assets/knight_sprite/JumpAttack_5.png'
+               , '../assets/knight_sprite/Walk_10.png']
+
 
 def animate_sprite(heading, i_sprite):
     switcher = {
@@ -25,7 +27,7 @@ pygame.init()
 screen = pygame.display.set_mode((l_width, l_height), 0, 32)
 
 
-class knight:
+class Character:
     def __init__(self):
         self.x = 0
         self.y = 0
@@ -54,55 +56,28 @@ class knight:
 background = pygame.image.load(background_image_filename).convert()
 knight_sprites = load_sprite_list(knight_imgs)
 sprite = knight_sprites[0]
-clock = pygame.time.Clock()
-sprite_pos = Vector2(200, 150)
-sprite_speed = 250
 
-# Directional normalized vectors
-direction_up = Vector2(0, -1)  # UP
-direction_up_right = Vector2(0.707, -0.707)
-direction_right = Vector2(1, 0)
-direction_down_right = Vector2(0.707, 0.707)
-direction_down = Vector2(0, 1)
-direction_down_left = Vector2(-0.707, 0.707)
-direction_left = Vector2(-1, 0)
-direction_up_left = Vector2(-0.707, -0.707)
-
-char_1 = knight()
+knight_1 = Character()
 heading = 0
 
 while True:
     for event in pygame.event.get():
         event_handler(event)
+
+        # Press right
         if event.type == KEYDOWN:
             if event.key == K_RIGHT:
                 heading = 1
             if event.key == K_LEFT:
                 heading = -1
-
+        # Release right
         elif event.type == KEYUP:
             if event.key == K_RIGHT:
                 heading = 0
             if event.key == K_LEFT:
                 heading = 0
 
-    '''
-    # Diagonals
-    if pressed_keys[K_UP] and pressed_keys[K_LEFT]:
-        key_direction = direction_up_left  # UP + LEFT
-    if pressed_keys[K_UP] and pressed_keys[K_RIGHT]:
-        key_direction = direction_up_right  # UP + RIGHT
-    if pressed_keys[K_DOWN] and pressed_keys[K_LEFT]:
-        key_direction = direction_down_left  # DOWN + LEFT
-    if pressed_keys[K_DOWN] and pressed_keys[K_RIGHT]:
-        key_direction = direction_down_right  # DOWN + RIGHT
-    '''
-
     screen.blit(background, (0, 0))
-    char_1.update(heading)
-    time_passed = clock.tick(50)
-    time_passed_seconds = time_passed / 1000.0
-
-    # sprite_pos += key_direction * sprite_speed * time_passed_seconds
+    knight_1.update(heading)
 
     pygame.display.update()

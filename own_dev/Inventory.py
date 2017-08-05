@@ -1,0 +1,57 @@
+class Item(object):
+    def __init__(self, name, value, quantity=1):
+        self.name = name
+        self.raw = name.strip().lower()
+        self.quantity = quantity
+
+        self.value = value
+        self.net_value = quantity * value
+
+    def recalc(self):
+        self.net_value = self.quantity * self.value
+
+
+class Container(object):
+    def __init__(self, name, gold=0):
+        self.name = name
+        self.inside = {}
+        self.gold = gold
+
+    def __iter__(self):
+        return iter(self.inside.items())
+
+    def __len__(self):
+        return len(self.inside)
+
+    def __contains__(self, item):
+        return item.raw in self.inside
+
+    def __getitem__(self, item):
+        return self.inside[item.raw]
+
+    def __setitem__(self, item, value):
+        self.inside[item.raw] = value
+        return self[item]
+
+    def add(self, item, quantity=1):
+        if quantity < 0:
+            raise ValueError("Negative quantity. Use Inventory.remove() instead.")
+
+        if item in self:
+            self[item].quantity += quantity
+            self[item].recalc()
+        else:
+            self[item] = item
+
+    def remove(self, item, quantity=1):
+        if item not in self:
+            raise KeyError("Item no in Container.")
+        if quantity < 0:
+            raise ValueError("Negative quantity. Use Inventory.add() instead.")
+
+        if self[item].quantity <= quantity:
+            del self.inside[item.raw]
+        else:
+            self[item].quantity -= quantity
+            self[item].recalc()
+

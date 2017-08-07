@@ -1,14 +1,35 @@
+import pygame
+
+
 class Item(object):
-    def __init__(self, name, value, quantity=1):
+    def __init__(self, x, y, name, value, quantity=1, img=None, sound=None):
         self.name = name
         self.raw = name.strip().lower()
         self.quantity = quantity
-
         self.value = value
         self.net_value = quantity * value
 
+        self.img = pygame.image.load(img).convert_alpha()
+        self.rect = self.img.get_rect()
+        self.rect.x = x
+        self.rect.y = y
+
+        self.sound = None
+        self.load_sound(sound)
+
     def recalc(self):
         self.net_value = self.quantity * self.value
+
+    def load_sound(self, sound):
+        if sound is not None:
+            self.sound = pygame.mixer.Sound(sound)
+
+    def play_sound(self):
+        if self.sound is not None:
+            self.sound.play()
+
+    def pick_up(self):
+        self.play_sound()
 
 
 class Container(object):
@@ -45,7 +66,7 @@ class Container(object):
 
     def remove(self, item, quantity=1):
         if item not in self:
-            raise KeyError("Item no in Container.")
+            raise KeyError("Item not present in Container.")
         if quantity < 0:
             raise ValueError("Negative quantity. Use Inventory.add() instead.")
 
@@ -54,4 +75,3 @@ class Container(object):
         else:
             self[item].quantity -= quantity
             self[item].recalc()
-

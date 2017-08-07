@@ -4,12 +4,13 @@ from various_functions.pygame_custom_functions import *
 
 
 class Character:
-    def __init__(self):
+    def __init__(self, stage_colliders=None):
         self.container = Container("")
         self.init_state = "IDLE"
         self.state = self.init_state
-        self.x = 100
-        self.y = 100
+        self.x = 5
+        self.y = 5
+        self.stage_colliders = stage_colliders
 
         # Idle animation
         self.ani_idle_speed_init = 4
@@ -43,6 +44,7 @@ class Character:
         self.update(0, pygame.display.set_mode((0, 0), 0, 32), self.init_state)
 
     def update(self, heading, screen, delta, state=""):
+        print("State: {0}".format(state))
         if state == "":
             state = self.state
         if state == "IDLE":
@@ -57,7 +59,8 @@ class Character:
         if state == 'WALK':
             if heading != 0:
                 self.ani_walk_speed -= 1
-                self.x += heading * delta
+                # self.x += heading * delta
+                self.move(heading * delta, 0)
                 if self.ani_walk_speed == 0:
                     self.img = self.walk_ani[self.walk_ani_pos]
                     self.ani_walk_speed = self.ani_walk_speed_init
@@ -68,7 +71,8 @@ class Character:
         if state == "RUN":
             if heading != 0:
                 self.ani_run_speed -= 1
-                self.x += heading * delta
+                # self.x += heading * delta
+                self.move(heading * delta, 0)
                 if self.ani_run_speed == 0:
                     self.img = self.run_ani[self.run_ani_pos]
                     self.ani_run_speed = self.ani_run_speed_init
@@ -79,11 +83,37 @@ class Character:
 
         # if state == 'DEATH':
         self.update_img_rect()
-        print(self.img_rect)
         screen.blit(self.img, (self.x, self.y))
 
     def update_img_rect(self):
         self.img_rect = self.img.get_rect()
+        self.img_rect.top = self.x
+        self.img_rect.left = self.y
+
+    def move(self, dx, dy):
+        # Move each axis separately. Note that this checks for collisions both times.
+        if dx != 0:
+            self.move_single_axis(dx, 0)
+        if dy != 0:
+            self.move_single_axis(0, dy)
+
+    def move_single_axis(self, dx, dy):
+        print("x: {0}, y = {1}".format(self.x, self.y))
+        # Move the rect
+        self.x += dx
+        self.y += dy
+
+        # If you collide with a collider, move out based on velocity
+        for collider in self.stage_colliders:
+            if self.img_rect.colliderect(collider):
+                if dx > 0:  # Moving right; Hit the left side of the collider
+                    self.img_rect.right = collider.left
+                if dx < 0:  # Moving left; Hit the right side of the collider
+                    self.img_rect.left = collider.right
+                if dy > 0:  # Moving down; Hit the top side of the collider
+                    self.img_rect.bottom = collider.top
+                if dy < 0:  # Moving up; Hit the bottom side of the collider
+                    self.img_rect.top = collider.bottom
 
     def purchase(self, *items):
         for item in items:

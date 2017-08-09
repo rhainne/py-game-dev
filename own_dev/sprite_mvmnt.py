@@ -4,9 +4,10 @@ sys.path.insert(0, '/home/rain/Git/py-game-dev/')
 sys.path.insert(0, 'C:/Users/rain_/PycharmProjects/py-game-dev')
 from own_dev.Character import *
 from own_dev.Inventory import *
+from own_dev.Map import *
 
-#l_width, l_height = 1024, 720
-l_width, l_height = 1000, 30
+l_width, l_height = 1024, 720
+# l_width, l_height = 1000, 30
 SPEED_WALK = 200
 SPEED_RUN = 400
 
@@ -29,14 +30,15 @@ list_of_items = [Item(0, 500, blue_coin_name, 5, 1, coin_img, coin_sound),
                  Item(0, 800, blue_coin_name, 5, 1, coin_img, coin_sound),
                  Item(0, 400, blue_coin_name, 5, 1, coin_img, coin_sound)]
 
-list_of_rects = [Rect(0, 400, 10, 10),
-                 Rect(0, 500, 10, 10),
-                 Rect(0, 600, 10, 10),
-                 Rect(0, 700, 10, 10),
-                 Rect(0, 800, 10, 10)]
+list_of_rects = [Rect(0, 400, 100, 100),
+                 Rect(0, 500, 100, 100),
+                 Rect(0, 600, 100, 100),
+                 Rect(0, 700, 100, 100),
+                 Rect(0, 800, 100, 100)]
 
 knight_1 = Character(list_of_rects)
 knight_1.container = Container("Basic Backpack", 10)
+map = Map()
 heading = 0
 
 while True:
@@ -70,6 +72,8 @@ while True:
             if event.key == K_LEFT:
                 knight_1.state = "IDLE"
                 heading = 0
+            if event.key == K_m:
+                map.show_map(l_width, l_height, screen)
 
     if knight_1.x > l_width:
         knight_1.x = -147

@@ -7,6 +7,7 @@ class Character:
     def __init__(self, stage_colliders=None):
         self.container = Container("")
         self.init_state = "IDLE"
+        self.map_location = "middle_earth"
         self.state = self.init_state
         self.x = 5
         self.y = 5
@@ -44,9 +45,9 @@ class Character:
         self.update(0, pygame.display.set_mode((0, 0), 0, 32), self.init_state)
 
     def update(self, heading, screen, delta, state=""):
-        print("State: {0}".format(state))
         if state == "":
             state = self.state
+        print("State: {0}".format(state))
         if state == "IDLE":
             self.ani_idle_speed -= 1
             if self.ani_idle_speed == 0:

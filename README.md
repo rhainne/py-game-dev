@@ -9,7 +9,12 @@ This repository also contains a couple of simple games that help to check the st
 I will develop some little scripts to implement the lessons I learn and could be usefull in the future to make little games.
 - Classic movement of a sprite to the target using rotation and direction from source to target(mouse position)
 - Precalculation of direction vectors in key_vector_movement.py script (Done in key_vector_mvmnt_opt.py)
-- Implement an inventory and item grabbing function
+- Implement Inventory and Item classes (Done in Inventory.py)
+- Implement Item grabbing functionality
+- Implement Colission system thinking also in reusability
+- Implement Inventory graphically
+- Implement Map system, maybe making each region clickable and zoomable
+- Think on reusable Stage maker.
 
 Resources
 - Tiled Map Editor: http://www.mapeditor.org/

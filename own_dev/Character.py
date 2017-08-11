@@ -47,7 +47,6 @@ class Character:
     def update(self, heading, screen, delta, state=""):
         if state == "":
             state = self.state
-        print("State: {0}".format(state))
         if state == "IDLE":
             self.ani_idle_speed -= 1
             if self.ani_idle_speed == 0:
@@ -99,7 +98,6 @@ class Character:
             self.move_single_axis(0, dy)
 
     def move_single_axis(self, dx, dy):
-        print("x: {0}, y = {1}".format(self.x, self.y))
         # Move the rect
         self.x += dx
         self.y += dy

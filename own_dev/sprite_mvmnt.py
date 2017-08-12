@@ -36,11 +36,11 @@ list_of_items = [
 ]
 
 list_of_rects = [
-    Rect(0, 400, 100, 100),
-    Rect(0, 500, 100, 100),
-    Rect(0, 600, 100, 100),
-    Rect(0, 700, 100, 100),
-    Rect(0, 800, 100, 100)
+    Rect(0, 400, 100, 100)
+    # Rect(0, 500, 100, 100),
+    # Rect(0, 600, 100, 100),
+    # Rect(0, 700, 100, 100),
+    # Rect(0, 800, 100, 100)
 ]
 
 list_of_maps = [
@@ -61,9 +61,6 @@ knight_1.container = Container("Basic Backpack", 10)
 map_collection = MapCollection("simon", list_of_maps)
 blit_map = None
 heading = 0
-
-maps = list((filter(lambda i_map: i_map.name == "simon", map_collection.map_collection)))
-print(maps[0])
 
 while True:
     seconds = elapsed / 1000.0

@@ -9,7 +9,7 @@ class Character:
         self.init_state = "IDLE"
         self.map_location = "middle_earth"
         self.state = self.init_state
-        self.x = 5
+        self.x = 800
         self.y = 5
         self.stage_colliders = stage_colliders
 
@@ -101,18 +101,21 @@ class Character:
         # Move the rect
         self.x += dx
         self.y += dy
-
+        print("dx: {0}, dy: {1}".format(dx, dy))
         # If you collide with a collider, move out based on velocity
         for collider in self.stage_colliders:
+            print("stage_colliders bucle")
             if self.img_rect.colliderect(collider):
+                print("if self.img_rect.colliderect(collide)")
                 if dx > 0:  # Moving right; Hit the left side of the collider
-                    self.img_rect.right = collider.left
+                    self.x -= dx + 1
                 if dx < 0:  # Moving left; Hit the right side of the collider
-                    self.img_rect.left = collider.right
+                    # self.img_rect.left = collider.right
+                    self.x -= dx + 1
                 if dy > 0:  # Moving down; Hit the top side of the collider
-                    self.img_rect.bottom = collider.top
+                    self.y -= dy + 1
                 if dy < 0:  # Moving up; Hit the bottom side of the collider
-                    self.img_rect.top = collider.bottom
+                    self.y -= dy + 1
 
     def purchase(self, *items):
         for item in items:

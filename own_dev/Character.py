@@ -1,5 +1,6 @@
 import glob
 from own_dev.Inventory import *
+from various_functions.vector2 import *
 from various_functions.pygame_custom_functions import *
 
 
@@ -9,8 +10,9 @@ class Character:
         self.init_state = "IDLE"
         self.map_location = "middle_earth"
         self.state = self.init_state
-        self.x = 800
+        self.x = 5
         self.y = 5
+        self.position = Vector2(5, 5)
         self.stage_colliders = stage_colliders
 
         # Idle animation
@@ -42,9 +44,9 @@ class Character:
 
         self.img = self.idle_ani[0]
         self.img_rect = self.img.get_rect()
-        self.update(0, pygame.display.set_mode((0, 0), 0, 32), self.init_state)
+        self.update(0, 0, pygame.display.set_mode((0, 0), 0, 32), self.init_state)
 
-    def update(self, heading, screen, delta, state=""):
+    def update(self, heading, up_down, screen, delta, state=""):
         if state == "":
             state = self.state
         if state == "IDLE":
@@ -57,10 +59,10 @@ class Character:
                 else:
                     self.idle_ani_pos += 1
         if state == 'WALK':
-            if heading != 0:
+            if heading != 0 or up_down != 0:
                 self.ani_walk_speed -= 1
                 # self.x += heading * delta
-                self.move(heading * delta, 0)
+                self.move(heading * delta, up_down * delta)
                 if self.ani_walk_speed == 0:
                     self.img = self.walk_ani[self.walk_ani_pos]
                     self.ani_walk_speed = self.ani_walk_speed_init
@@ -69,10 +71,10 @@ class Character:
                     else:
                         self.walk_ani_pos += 1
         if state == "RUN":
-            if heading != 0:
+            if heading != 0 or up_down != 0:
                 self.ani_run_speed -= 1
                 # self.x += heading * delta
-                self.move(heading * delta, 0)
+                self.move(heading * delta, up_down * delta)
                 if self.ani_run_speed == 0:
                     self.img = self.run_ani[self.run_ani_pos]
                     self.ani_run_speed = self.ani_run_speed_init
@@ -101,21 +103,21 @@ class Character:
         # Move the rect
         self.x += dx
         self.y += dy
-        print("dx: {0}, dy: {1}".format(dx, dy))
         # If you collide with a collider, move out based on velocity
         for collider in self.stage_colliders:
-            print("stage_colliders bucle")
             if self.img_rect.colliderect(collider):
-                print("if self.img_rect.colliderect(collide)")
                 if dx > 0:  # Moving right; Hit the left side of the collider
-                    self.x -= dx + 1
+                    # self.x -= dx + 1
+                    self.img_rect.right = collider.left
                 if dx < 0:  # Moving left; Hit the right side of the collider
-                    # self.img_rect.left = collider.right
-                    self.x -= dx + 1
+                    # self.x -= dx + 1
+                    self.img_rect.left = collider.right
                 if dy > 0:  # Moving down; Hit the top side of the collider
-                    self.y -= dy + 1
+                    # self.y -= dy + 1
+                    self.img_rect.bottom = collider.top
                 if dy < 0:  # Moving up; Hit the bottom side of the collider
-                    self.y -= dy + 1
+                    # self.y -= dy + 1
+                    self.img_rect.top = collider.bottom
 
     def purchase(self, *items):
         for item in items:

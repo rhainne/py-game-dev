@@ -4,6 +4,7 @@ class Enemy(object):
         attributes = {
             "name": "default_name",
             "display_name": "Default Name",
+            "image": "",
             "type": "",
             "max_spawn": 1,
             "spawn_ratio": 0.00,

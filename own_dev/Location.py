@@ -6,8 +6,8 @@ from own_dev.Stage import *
 
 
 class Location(Stage):
-    def __init__(self, ** kwargs):
-        Stage.__init__(self, "../assets/backgrounds/shop_1.jpg")
+    def __init__(self, **kwargs):
+        Stage.__init__(self, kwargs.get("background_img"))
         attributes = {
             "name": "default_name",
             "display_name": "Default Name",

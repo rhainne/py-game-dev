@@ -1,7 +1,7 @@
 import sys
 from math import sqrt
 sys.path.insert(0, 'C:/Users/Vanadys3/Git/py-game-dev/')
-from various_functions.pygame_custom_functions import *
+from own_dev.pygame_custom_functions import *
 
 """Class Vector2 made by Sentdex for Beginning Game Development with Python and Pygame"""
 

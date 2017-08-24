@@ -1,4 +1,4 @@
-from various_functions.pygame_custom_functions import *
+from own_dev.pygame_custom_functions import *
 
 l_width = 1280
 l_height = 800

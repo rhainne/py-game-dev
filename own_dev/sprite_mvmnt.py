@@ -11,7 +11,7 @@ from own_dev.Inventory import *
 from own_dev.MapCollection import *
 from own_dev.Map import *
 
-l_width, l_height = 1024, 720
+l_width, l_height = 1024, 500
 SPEED_WALK = 300
 DIAGONAL_MODIFIER = 0.707
 
@@ -58,11 +58,7 @@ list_of_maps = [
             ])
 ]
 
-current_location = copy.copy(Regions["durna"])
-battleground_1 = Battleground(current_location)
-battleground_1.spawn_enemies()
-print(current_location)
-knight_1 = Character(list_of_rects)
+knight_1 = Character(screen, "durna", list_of_rects)
 knight_1.container = Container("Basic Backpack", 10)
 map_collection = MapCollection("simon", list_of_maps)
 blit_map = None

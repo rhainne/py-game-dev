@@ -1,5 +1,6 @@
 from random import randint
-from various_functions.pygame_custom_functions import *
+
+from own_dev.pygame_custom_functions import *
 
 # mustlock method in surface objects returns True if a surface requires locking.
 

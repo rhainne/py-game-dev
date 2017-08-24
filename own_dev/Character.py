@@ -1,18 +1,20 @@
-import glob
+from own_dev.Battleground import *
 from own_dev.Inventory import *
-from various_functions.vector2 import *
-from various_functions.pygame_custom_functions import *
+from own_dev.Regions import *
+from own_dev.pygame_custom_functions import *
 
 
 class Character:
-    def __init__(self, stage_colliders=None):
+    def __init__(self, screen, location, stage_colliders=None):
         self.container = Container("")
+        self.step_until_battle = 50
         self.init_state = "IDLE"
-        self.map_location = "middle_earth"
         self.state = self.init_state
+        self.map_location = location
+        self.location = location
+        self.screen = screen
         self.x = 5
         self.y = 5
-        self.position = Vector2(5, 5)
         self.stage_colliders = stage_colliders
 
         # Idle animation
@@ -59,6 +61,7 @@ class Character:
                 else:
                     self.idle_ani_pos += 1
         if state == 'WALK':
+            self.step_until_battle -= 1
             if heading != 0 or up_down != 0:
                 self.ani_walk_speed -= 1
                 # self.x += heading * delta
@@ -86,6 +89,10 @@ class Character:
         # if state == 'DEATH':
         self.update_img_rect()
         screen.blit(self.img, (self.x, self.y))
+
+        # If we walked enough to face enemies
+        if self.step_until_battle < 0:
+            self.trigger_battle()
 
     def update_img_rect(self):
         self.img_rect = self.img.get_rect()
@@ -118,6 +125,12 @@ class Character:
                 if dy < 0:  # Moving up; Hit the bottom side of the collider
                     # self.y -= dy + 1
                     self.img_rect.top = collider.bottom
+
+    def trigger_battle(self):
+        print("A battle will take place!")
+        self.step_until_battle = 50
+        print(self.location)
+        Battleground(self.screen, self.location)
 
     def purchase(self, *items):
         for item in items:

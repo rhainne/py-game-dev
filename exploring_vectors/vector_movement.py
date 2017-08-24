@@ -1,6 +1,6 @@
 import sys
 sys.path.insert(0, 'C:/Users/Vanadys3/Git/py-game-dev/')
-from various_functions.pygame_custom_functions import *
+from own_dev.pygame_custom_functions import *
 from various_functions.vector2 import Vector2
 
 background_image_filename = '../assets/chess1280x800.png'

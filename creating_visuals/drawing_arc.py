@@ -1,5 +1,6 @@
 from math import pi
-from various_functions.pygame_custom_functions import *
+
+from own_dev.pygame_custom_functions import *
 
 pygame.init()
 

@@ -1,6 +1,7 @@
 
 from random import *
-from various_functions.pygame_custom_functions import *
+
+from own_dev.pygame_custom_functions import *
 
 l_width, l_height = 1024, 800
 

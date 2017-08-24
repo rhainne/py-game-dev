@@ -1,5 +1,6 @@
 import glob
-from various_functions.pygame_custom_functions import *
+
+from own_dev.pygame_custom_functions import *
 
 LEFT = 1
 MIDDLE = 2

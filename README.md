@@ -11,8 +11,20 @@ I will develop some little scripts to implement the lessons I learn and could be
 ### Next Steps:
 - Implement Item grabbing functionality
 - Implement Inventory graphically
-- Implement Shop.py and NPCs.
-- Think on reusable Stage maker.(Stage, Shop, Location, Battleground)
+- Implement a basic Battle system
+- Implement Battle HUD
+- Implement Shopping HUD
+- Implement and In-Game Menu (The classic character stats, wear, )
+- Implement Shop.py and NPCs
+- Think on reusable Stage maker(Stage, Shop, Location, Battleground)
+- Implement Game Saving
+- Add a Main Menu (Start Game, Load Game, Options, Quit)
+- Implement the behaviour of Quit, with confirmation
+- Implement the behaviour of Start Game
+- Implement the behaviour of Load Game
+- Add Combat Skills
+- Add NPCs to start working with some usable data
+
 
 ### Done tasks:
 

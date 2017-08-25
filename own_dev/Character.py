@@ -137,10 +137,12 @@ class Character:
             if item.value > self.container.gold:
                 print("You don't have enough money.")
                 print("Come back when you have {0} more gold.".format(item.value - self.container.gold))
+                return False
             else:
                 self.container.gold -= item.value
                 self.container.add(item)
                 print("{0} purchased".format(item.name))
+                return True
 
     def sell(self, item):
         if item in self.container:

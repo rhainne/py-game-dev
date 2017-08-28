@@ -5,8 +5,8 @@ from own_dev.pygame_custom_functions import *
 
 
 class Character:
-    def __init__(self, screen, location, stage_colliders=None):
-        self.container = Container("")
+    def __init__(self, screen, location, container, stage_colliders=None):
+        self.container = container
         self.step_until_battle = 50
         self.init_state = "IDLE"
         self.state = self.init_state
@@ -73,18 +73,6 @@ class Character:
                         self.walk_ani_pos = 0
                     else:
                         self.walk_ani_pos += 1
-        if state == "RUN":
-            if heading != 0 or up_down != 0:
-                self.ani_run_speed -= 1
-                # self.x += heading * delta
-                self.move(heading * delta, up_down * delta)
-                if self.ani_run_speed == 0:
-                    self.img = self.run_ani[self.run_ani_pos]
-                    self.ani_run_speed = self.ani_run_speed_init
-                    if self.run_ani_pos == self.run_ani_max:
-                        self.run_ani_pos = 0
-                    else:
-                        self.run_ani_pos += 1
 
         # if state == 'DEATH':
         self.update_img_rect()
@@ -127,9 +115,7 @@ class Character:
                     self.img_rect.top = collider.bottom
 
     def trigger_battle(self):
-        print("A battle will take place!")
         self.step_until_battle = 50
-        print(self.location)
         Battleground(self.screen, self.location)
 
     def purchase(self, *items):

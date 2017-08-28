@@ -12,6 +12,7 @@ class Location(Stage):
             "name": "default_name",
             "display_name": "Default Name",
             "fauna_list": [],
+            "item_list": [],
             "crowdness": 0,
             "shop_list": [],
             "weather": "",

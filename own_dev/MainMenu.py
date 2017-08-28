@@ -1,7 +1,9 @@
 #!/usr/bin/python
 import sys
 sys.path.insert(0, 'C:/Users/Vanadys3/Git/py-game-dev/')
-from own_dev.pygame_custom_functions import *
+from own_dev.GameLine import *
+from own_dev.Character import *
+from own_dev.GlobeMaps import *
 
 pygame.init()
 
@@ -54,7 +56,7 @@ class GameMenu:
                 if event.type == pygame.MOUSEBUTTONUP and event.button == 1:
                     mouse_pos = pygame.mouse.get_pos()
                     if self.item_rects[0].collidepoint(mouse_pos):
-                        print("Start Game pressed")
+                        self.start_new_game()
                     if self.item_rects[1].collidepoint(mouse_pos):
                         print("Load Game pressed")
                     if self.item_rects[2].collidepoint(mouse_pos):
@@ -118,10 +120,22 @@ class GameMenu:
 
             pygame.display.update()
 
+    def start_new_game(self):
+        container = Container("Standard Bag", 0)
+        character = Character(self.screen, "durna", container, [])
+        map_collection = [Map_constructors["rohan"]
+                          , Map_constructors["middle_earth"]
+                          , Map_constructors["simon"]
+                          ]
+        # self, screen, character, container, map_collection, bg_image
+        bg_image = "../assets/chess1280x800.png"
+        gl = GameLine(self.screen, character, map_collection, bg_image)
+        gl.run()
+
 
 if __name__ == "__main__":
     # Creating the screen
-    screen = pygame.display.set_mode((1024, 600), 0, 32)
+    screen = pygame.display.set_mode((1042, 600), 0, 32)
 
     menu_items = ('Start Game', 'Load Game', 'Options', 'Quit')
 

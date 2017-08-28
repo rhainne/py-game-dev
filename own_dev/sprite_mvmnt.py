@@ -1,4 +1,3 @@
-import copy
 import sys
 sys.path.insert(0, 'C:/Users/Vanadys3/Git/py-game-dev/')
 sys.path.insert(0, '/home/rain/Git/py-game-dev/')
@@ -27,11 +26,11 @@ coin_img = "../assets/knight_sprite/6-25x100/Dead_10.png"
 coin_sound = "../assets/sound/coin_pick_up.wav"
 
 list_of_items = [
-    Item(0, 500, blue_coin_name, 5, 1, coin_img, coin_sound),
-    Item(0, 600, blue_coin_name, 5, 1, coin_img, coin_sound),
-    Item(0, 700, blue_coin_name, 5, 1, coin_img, coin_sound),
-    Item(0, 800, blue_coin_name, 5, 1, coin_img, coin_sound),
-    Item(0, 400, blue_coin_name, 5, 1, coin_img, coin_sound)
+#    Item(0, 500, blue_coin_name, 5, 1, coin_img, coin_sound),
+#    Item(0, 600, blue_coin_name, 5, 1, coin_img, coin_sound),
+#    Item(0, 700, blue_coin_name, 5, 1, coin_img, coin_sound),
+#    Item(0, 800, blue_coin_name, 5, 1, coin_img, coin_sound),
+#    Item(0, 400, blue_coin_name, 5, 1, coin_img, coin_sound)
 ]
 
 list_of_rects = [
@@ -113,6 +112,7 @@ while True:
                     map_deployed = True
                     pygame.mouse.set_visible(True)
                     blit_map = map_collection.show_map(l_width, l_height)
+                    print(map_collection)
                 else:
                     map_deployed = False
                     pygame.mouse.set_visible(False)

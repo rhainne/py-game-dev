@@ -1,8 +1,7 @@
-import pygame
 import numpy as np
 import random
 from own_dev.Bestiary import *
-from own_dev.Regions import *  # Regions imports Stage
+from own_dev.Regions import *
 from own_dev.pygame_custom_functions import *
 
 

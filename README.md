@@ -16,24 +16,25 @@ I will develop some little scripts to implement the lessons I learn and could be
 - Implement Shopping HUD
 - Implement and In-Game Menu (The classic character stats, wear, )
 - Implement Shop.py and NPCs
-- Think on reusable Stage maker(Stage, Shop, Location, Battleground)
 - Implement Game Saving
 - Add a Main Menu (Start Game, Load Game, Options, Quit)
-- Implement the behaviour of Quit, with confirmation
-- Implement the behaviour of Start Game
 - Implement the behaviour of Load Game
-- Add Combat Skills
+- Add Combat Skills in a file similar to Regions or Bestiary)
 - Add NPCs to start working with some usable data
-- Implement Map_data (Dictionary of Maps, using Map class structure)
 
 
 ### Done tasks:
 
+- Implement the behaviour of Quit, with confirmation (Done in MainMenu.py (method raise_warning_on_exit()))
+- Implement the behaviour of Start Game(Done in MainMenu.py)
+- Implement Map_data (Dictionary of Maps, using Map class structure) (Done in GlobeMaps.py)
 - Implement Map system, maybe making each region clickable and zoomable (MapCollection.py and Map.py)
 - Implement Colission system thinking also in reusability (Character.py implements collision check on move method
 - Implement Inventory and Item classes (Done in Inventory.py)
 - Precalculation of direction vectors in key_vector_movement.py script (Done in key_vector_mvmnt_opt.py)
 - Classic movement of a sprite to the target using rotation and direction from source to target(mouse position)
+- Think on reusable Stage maker(Stage, Shop, Location, Battleground)
+
 
 ### Resources
 - Tiled Map Editor: http://www.mapeditor.org/

@@ -3,9 +3,6 @@ import sys
 sys.path.insert(0, 'C:/Users/Vanadys3/Git/py-game-dev/')
 sys.path.insert(0, '/home/rain/Git/py-game-dev/')
 sys.path.insert(0, 'C:/Users/rain_/PycharmProjects/py-game-dev')
-
-from own_dev.Regions import *
-from own_dev.Battleground import *
 from own_dev.Character import *
 from own_dev.Inventory import *
 from own_dev.MapCollection import *

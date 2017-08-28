@@ -24,6 +24,7 @@ I will develop some little scripts to implement the lessons I learn and could be
 - Implement the behaviour of Load Game
 - Add Combat Skills
 - Add NPCs to start working with some usable data
+- Implement Map_data (Dictionary of Maps, using Map class structure)
 
 
 ### Done tasks:

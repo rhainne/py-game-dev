@@ -1,5 +1,4 @@
 from own_dev.Battleground import *
-from own_dev.Inventory import *
 from own_dev.Regions import *
 from own_dev.pygame_custom_functions import *
 
@@ -7,6 +6,7 @@ from own_dev.pygame_custom_functions import *
 class Character:
     def __init__(self, screen, location, container, stage_colliders=None):
         self.container = container
+        self.team = []
         self.step_until_battle = 50
         self.init_state = "IDLE"
         self.state = self.init_state
@@ -116,7 +116,7 @@ class Character:
 
     def trigger_battle(self):
         self.step_until_battle = 50
-        Battleground(self.screen, self.location)
+        Battleground(self.screen, self.location, self.team)
 
     def purchase(self, *items):
         for item in items:
@@ -125,14 +125,16 @@ class Character:
                 print("Come back when you have {0} more gold.".format(item.value - self.container.gold))
                 return False
             else:
-                self.container.gold -= item.value
-                self.container.add(item)
+                added = self.container.add(item)
+                if added:
+                    self.container.gold -= item.value
                 print("{0} purchased".format(item.name))
                 return True
 
     def sell(self, item):
         if item in self.container:
             self.container.gold += item.value
+            self.container.remove(item)
             print("{0} sold. {1} earned.".format(item.name, item.value))
         else:
             print("You cannot sell an item you don't have.")

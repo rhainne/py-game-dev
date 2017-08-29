@@ -81,7 +81,6 @@ class GameLine:
                         if self.blit_map is None:
                             self.map_deployed = True
                             pygame.mouse.set_visible(True)
-                            print(self.map_collection)
                             self.blit_map = self.map_collection.show_map(self.scr_width, self.scr_height)
                         else:
                             self.map_deployed = False

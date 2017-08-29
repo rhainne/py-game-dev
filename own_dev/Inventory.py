@@ -10,16 +10,23 @@ class Item(object):
         self.net_value = quantity * value
         self.weight = weight
 
-        self.img = pygame.image.load(img).convert_alpha()
+        self.img = img
+        self.load_img(self.img)
         self.rect = self.img.get_rect()
         self.rect.x = x
         self.rect.y = y
 
-        self.sound = None
-        self.load_sound(sound)
+        self.sound = sound
+        self.load_sound(self.sound)
+
+        self.wearable = False
 
     def recalc(self):
         self.net_value = self.quantity * self.value
+
+    def load_img(self, img):
+        if img is not None:
+            self.img = pygame.image.load(img).convert_alpha()
 
     def load_sound(self, sound):
         if sound is not None:
@@ -34,9 +41,11 @@ class Item(object):
 
 
 class Container(object):
-    def __init__(self, name, gold=0):
+    def __init__(self, name, max_capacity, img, gold=0):
         self.name = name
         self.inside = {}
+        self.max_capacity = max_capacity
+        self.img = img
         self.gold = gold
 
     def __iter__(self):
@@ -59,11 +68,16 @@ class Container(object):
         if quantity < 0:
             raise ValueError("Negative quantity. Use Inventory.remove() instead.")
 
-        if item in self:
-            self[item].quantity += quantity
-            self[item].recalc()
+        if self.max_capacity > self.__len__():
+            if item in self:
+                self[item].quantity += quantity
+                self[item].recalc()
+                return True
+            else:
+                self[item] = item
         else:
-            self[item] = item
+            print("Too much burden. You cannot wear anything more")
+        return False
 
     def remove(self, item, quantity=1):
         if item not in self:

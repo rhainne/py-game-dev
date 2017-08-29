@@ -6,11 +6,12 @@ from own_dev.pygame_custom_functions import *
 
 
 class Battleground(Stage):
-    def __init__(self, screen, location):
+    def __init__(self, screen, location, team):
         Stage.__init__(self, Regions_data[location]["background_img"])
         self.screen = screen
         self.location = location
-        self.spawned_enemies = ""
+        self.team = team
+        self.spawned_enemies = []
         self.battle_loop()
 
     def spawn_enemies(self):

@@ -21,7 +21,8 @@ I will develop some little scripts to implement the lessons I learn and could be
 - Implement the behaviour of Load Game
 - Add Combat Skills in a file similar to Regions or Bestiary)
 - Add NPCs to start working with some usable data
-
+- Add Item and Container masterdata
+- Implement WearableItem class 
 
 ### Done tasks:
 

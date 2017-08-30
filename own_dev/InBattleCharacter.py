@@ -72,6 +72,19 @@ class InBattleCharacter:
                "\nHealth: {2}" \
                "\nMagic points: {3} " \
                "\nEquipment: {4}" \
-               "\nStatus Resistances: {5}".format(self.display_name, self.level, self.hp, self.mp, self.equipment, self.status_resistances)
-
+               "\nStatus Resistances: {5} " \
+               "\nStrength: {6} " \
+               "\nVitality: {7} " \
+               "\nMagic: {8} " \
+               "\nSpirit: {9} " \
+               "\nSkill: {10} " \
+               "\nSpeed: {11} " \
+               "\nEvasion: {12} " \
+               "\nMagical Evasion: {13} " \
+               "\nAccuracy: {14} " \
+               "\nLuck: {15} ".format(self.display_name, self.level, self.hp,
+                                      self.mp, self.equipment, self.status_resistances,
+                                      self.strength, self.vitality, self.magic, self.spirit, self.skill,
+                                      self.speed, self.evasion, self.mg_evasion, self.accuracy, self.luck
+                                      )
     __repr__ = __str__

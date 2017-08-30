@@ -2,8 +2,9 @@ import pygame
 
 
 class Item(object):
-    def __init__(self, x, y, name, value, weight, quantity=1, img=None, sound=None):
+    def __init__(self, x, y, name, display_name, value, weight, quantity=1, img=None, sound=None):
         self.name = name
+        self.display_name = display_name
         self.raw = name.strip().lower()
         self.quantity = quantity
         self.value = value

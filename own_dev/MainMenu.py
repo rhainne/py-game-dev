@@ -60,6 +60,7 @@ class GameMenu:
                         self.start_new_game()
                     if self.item_rects[1].collidepoint(mouse_pos):
                         print("Load Game pressed")
+                        # self.load_saved_game()
                     if self.item_rects[2].collidepoint(mouse_pos):
                         print("Options pressed")
                     if self.item_rects[3].collidepoint(mouse_pos):
@@ -122,7 +123,7 @@ class GameMenu:
             pygame.display.update()
 
     def start_new_game(self):
-        container = Container("Standard Bag", 0)
+        container = Container("Standard Bag", 0, "")
         character = Character(self.screen, "durna", container, [])
         map_collection = [Map_constructors["rohan"]
                           , Map_constructors["middle_earth"]
@@ -133,6 +134,10 @@ class GameMenu:
         gl = GameLine(self.screen, character, map_collection, bg_image)
         gl.run()
 
+    #def load_saved_game(self):
+        # research here pickle protocol
+        # https://docs.python.org/2/library/pickle.html#the-pickle-protocol
+        # https://stackoverflow.com/questions/18606097/python-text-game-how-to-make-a-save-feature
 
 if __name__ == "__main__":
     # Creating the screen

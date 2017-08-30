@@ -4,6 +4,8 @@ from own_dev.Inventory import *
 class WearableItem(Item):
     def __init__(self, **kwargs):
         attributes = {
+            "name": "",
+            "display_name": "",
             "hp_mod": 0,
             "mp_mod": 0,
             "strength_mod": 0,

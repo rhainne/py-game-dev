@@ -3,7 +3,7 @@ sys.path.insert(0, 'C:/Users/Vanadys3/Git/py-game-dev/')
 sys.path.insert(0, '/home/rain/Git/py-game-dev/')
 sys.path.insert(0, 'C:/Users/rain_/PycharmProjects/py-game-dev')
 from own_dev.MapCollection import *
-
+from own_dev.InBattleCharacter import *
 pygame.init()
 
 
@@ -14,6 +14,7 @@ class GameLine:
         self.scr_height = self.screen.get_rect().height
 
         self.character = character
+        self.in_battle_character = InBattleCharacter(name="rain", display_name="Rain")
 
         self.bg_image = bg_image
         self.bg_surface = pygame.image.load(self.bg_image).convert()
@@ -31,6 +32,7 @@ class GameLine:
     def run(self):
         heading = 0
         up_down = 0
+        print(self.in_battle_character)
         while True:
             seconds = self.elapsed / 1000.0
             for event in pygame.event.get():

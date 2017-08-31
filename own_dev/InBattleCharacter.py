@@ -1,3 +1,4 @@
+from own_dev.MDInventory import *
 
 
 class InBattleCharacter:
@@ -9,17 +10,17 @@ class InBattleCharacter:
             "image": "",
             "type": "",
             "level": 1,
-            "hp": 1,
-            "mp": 1,
-            "strength": 0,
-            "vitality": 0,
-            "magic": 0,
-            "spirit": 0,
+            "hp": 100,
+            "mp": 50,
+            "strength": 1,
+            "vitality": 1,
+            "magic": 1,
+            "spirit": 1,
             "skill": 0,
-            "speed": 0,
-            "evasion": 0,
-            "mg_evasion": 0,
-            "accuracy": 0,
+            "speed": 10,
+            "evasion": 1,
+            "mg_evasion": 1,
+            "accuracy": 5,
             "luck": 0,
             "status_resistances": {
                 "sleep": 0,
@@ -44,27 +45,54 @@ class InBattleCharacter:
                 "gloves": "",
                 "boots": "",
                 "shoulders": "",
-                "accessory": []
+                "accessory_1": "",
+                "accessory_2": "",
+                "necklace": ""
             }
         }
 
         for (prop, default) in list(attributes.items()):
             setattr(self, prop, kwargs.get(prop, default))
 
-    def recalc_level_bonus(self):
-        bonus = self.level / 100 + 1
+        self.recalc_equipment_bonus()
+        self.recalc_level_bonus()
+        print(self)
 
-        self.hp = self.hp * bonus
-        self.mp = self.mp * bonus
-        self.strength = self.strength * bonus
-        self.vitality = self.vitality * bonus
-        self.magic = self.magic * bonus
-        self.spirit = self.spirit * bonus
-        self.skill = self.skill * bonus
-        self.speed = self.speed * bonus
-        self.evasion = self.evasion * bonus
-        self.mg_evasion = self.mg_evasion * bonus
-        self.accuracy = self.accuracy * bonus
+    def recalc_equipment_bonus(self):
+        for key, value in self.equipment.items():
+            if value != "":
+                self.recalc_item_bonus(value)
+
+    def recalc_item_bonus(self, item):
+        wearable_item_data = Wearable_item_Data[item]
+
+        self.hp += wearable_item_data["hp_mod"]
+        self.mp += wearable_item_data["mp_mod"]
+        self.strength += wearable_item_data["strength_mod"]
+        self.vitality += wearable_item_data["vitality_mod"]
+        self.magic += wearable_item_data["magic_mod"]
+        self.spirit += wearable_item_data["spirit_mod"]
+        self.skill += wearable_item_data["skill_mod"]
+        self.speed += wearable_item_data["speed_mod"]
+        self.evasion += wearable_item_data["evasion_mod"]
+        self.mg_evasion += wearable_item_data["mg_evasion_mod"]
+        self.accuracy += wearable_item_data["accuracy_mod"]
+        self.luck += wearable_item_data["luck_mod"]
+
+    def recalc_level_bonus(self):
+        bonus = self.level / 25 + 1
+
+        self.hp = (self.hp + self.level * 5) * bonus
+        self.mp = (self.mp + self.level * 2) * bonus
+        self.strength = (self.strength + self.level) * bonus
+        self.vitality = (self.vitality + self.level) * bonus
+        self.magic = (self.magic + self.level) * bonus
+        self.spirit = (self.spirit + self.level) * bonus
+        self.skill = (self.skill + self.level / 2) * bonus
+        self.speed = (self.speed + self.level / 4) * bonus
+        self.evasion = (self.evasion + self.level / 6) * bonus
+        self.mg_evasion = (self.mg_evasion + self.level / 6) * bonus
+        self.accuracy = (self.accuracy + self.level / 6) * bonus
 
     def __str__(self):
         return "Name: {0}" \

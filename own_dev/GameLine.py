@@ -14,7 +14,8 @@ class GameLine:
         self.scr_height = self.screen.get_rect().height
 
         self.character = character
-        self.in_battle_character = InBattleCharacter(name="rain", display_name="Rain", level=40)
+        # Could be and ussually will be more than one InBattleCharacters
+        self.in_battle_characters = [InBattleCharacter(name="rain", display_name="Rain", level=40)]
 
         self.bg_image = bg_image
         self.bg_surface = pygame.image.load(self.bg_image).convert()
@@ -32,7 +33,6 @@ class GameLine:
     def run(self):
         heading = 0
         up_down = 0
-        # print(self.in_battle_character)
         while True:
             seconds = self.elapsed / 1000.0
             for event in pygame.event.get():
@@ -88,6 +88,9 @@ class GameLine:
                             self.map_deployed = False
                             pygame.mouse.set_visible(False)
                             self.blit_map = None
+
+                    if event.key == K_p:
+                        self.character.in_game_menu.open_menu()
 
                 if event.type == pygame.MOUSEBUTTONUP:
                     if self.map_deployed:

@@ -1,6 +1,7 @@
 from own_dev.Battleground import *
 from own_dev.Regions import *
 from own_dev.pygame_custom_functions import *
+from own_dev.InGameMenu import *
 
 
 class Character:
@@ -16,6 +17,7 @@ class Character:
         self.x = 5
         self.y = 5
         self.stage_colliders = stage_colliders
+        self.in_game_menu = InGameMenu(self.screen, self.location, self.team)
 
         # Idle animation
         self.ani_idle_speed_init = 4
@@ -34,15 +36,6 @@ class Character:
         self.walk_ani = load_sprite_list(self.ani_walk_sprite_list)
         self.walk_ani_pos = 0
         self.walk_ani_max = len(self.walk_ani) - 1
-
-        # Run animation
-        self.ani_run_speed_init = 4
-        self.ani_run_speed = self.ani_run_speed_init
-        self.ani_run_sprite_list = glob.glob("../assets/knight_sprite/25x100/Run*.png")
-        self.ani_run_sprite_list.sort()  # Order the frames
-        self.run_ani = load_sprite_list(self.ani_run_sprite_list)
-        self.run_ani_pos = 0
-        self.run_ani_max = len(self.run_ani) - 1
 
         self.img = self.idle_ani[0]
         self.img_rect = self.img.get_rect()
@@ -115,7 +108,7 @@ class Character:
                     self.img_rect.top = collider.bottom
 
     def trigger_battle(self):
-        self.step_until_battle = 50
+        self.step_until_battle = 100
         Battleground(self.screen, self.location, self.team)
 
     def purchase(self, *items):

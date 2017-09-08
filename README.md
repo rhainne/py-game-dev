@@ -23,9 +23,9 @@ I will develop some little scripts to implement the lessons I learn and could be
 - Add NPCs to start working with some usable data
 - Add Item and Container masterdata
 - Implement WearableItem class 
+- Add different music on each menu or level
 
 ### Done tasks:
-
 - Implement the behaviour of Quit, with confirmation (Done in MainMenu.py (method raise_warning_on_exit()))
 - Implement the behaviour of Start Game(Done in MainMenu.py)
 - Implement Map_data (Dictionary of Maps, using Map class structure) (Done in GlobeMaps.py)
@@ -35,7 +35,6 @@ I will develop some little scripts to implement the lessons I learn and could be
 - Precalculation of direction vectors in key_vector_movement.py script (Done in key_vector_mvmnt_opt.py)
 - Classic movement of a sprite to the target using rotation and direction from source to target(mouse position)
 - Think on reusable Stage maker(Stage, Shop, Location, Battleground)
-
 
 ### Resources
 - Tiled Map Editor: http://www.mapeditor.org/

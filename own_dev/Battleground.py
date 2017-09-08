@@ -2,6 +2,7 @@ import numpy as np
 import random
 from own_dev.Bestiary import *
 from own_dev.Regions import *
+from own_dev.Stage import *
 from own_dev.pygame_custom_functions import *
 
 
@@ -17,11 +18,10 @@ class Battleground(Stage):
     def spawn_enemies(self):
         # This function will create Enemy instances.
         # Enemies will be chosen from location.fauna_list
-        # using the crowness modifier and min_/max_spawn attribute of each Enemy,
+        # using the crowdness modifier and min_/max_spawn attribute of each Enemy,
         # until a number between 1 and MAX_NUMBER_OF_ENEMIES is reached.
 
-        # current_ratio = random.uniform(0, 1)
-        current_ratio = 0.0000000001
+        current_ratio = random.uniform(0, 1)
         max_number_of_mobs = random.randint(1, Regions_data[self.location]["crowdness"])
         possible_mobs = []
         for mob in Regions_data[self.location]["fauna_list"]:

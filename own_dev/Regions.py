@@ -1,6 +1,5 @@
 import sys
 sys.path.insert(0, 'C:/Users/Vanadys3/Git/py-game-dev/')
-from own_dev.Location import *
 
 #
 # attributes = {
@@ -26,17 +25,17 @@ dict_of_faunas = {
 # Data
 Regions_data = {
     "halfstat": {"name": "halfstat", "display_name": "Halfs Tat", "fauna_list": dict_of_faunas["halfstat"]
-                 , "crowdness": 4, "shop_list": [], "weather": "cloudy", "background_img": ""
+                 , "crowdness": 4, "shop_list": [], "weather": "cloudy", "background_img": "", "saving_available": True
                  },
     "sandalaar": {"name": "sandalaar", "display_name": "San-Dalaar", "fauna_list": dict_of_faunas["sandalaar"]
-                  , "crowdness": 4, "shop_list": [], "weather": "rainy", "background_img": ""
+                  , "crowdness": 4, "shop_list": [], "weather": "rainy", "background_img": "", "saving_available": True
                   },
     "durna": {"name": "durna", "display_name": "Durna", "fauna_list": dict_of_faunas["durna"]
               , "crowdness": 2, "shop_list": [], "weather": "sunny"
-              , "background_img": "../assets/backgrounds/battle/battle_2.jpg"
+              , "background_img": "../assets/backgrounds/battle/battle_2.jpg", "saving_available": True
               },
     "middle_earth": {"name": "middle_earth", "display_name": "Middle Earth", "fauna_list": dict_of_faunas["middle_earth"]
                      , "crowdness": 10, "shop_list": [], "weather": "cloudy"
-                     , "background_img": "../assets/backgrounds/battle/battle_1.jpg"
+                     , "background_img": "../assets/backgrounds/battle/battle_1.jpg", "saving_available": True
                      }
 }

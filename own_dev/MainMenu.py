@@ -134,14 +134,14 @@ class GameMenu:
         gl = GameLine(self.screen, character, map_collection, bg_image)
         gl.run()
 
-    #def load_saved_game(self):
+    # def load_saved_game(self):
         # research here pickle protocol
         # https://docs.python.org/2/library/pickle.html#the-pickle-protocol
         # https://stackoverflow.com/questions/18606097/python-text-game-how-to-make-a-save-feature
 
 if __name__ == "__main__":
     # Creating the screen
-    screen = pygame.display.set_mode((1042, 600), 0, 32)
+    screen = pygame.display.set_mode((1024, 500), 0, 32)
 
     menu_items = ('Start Game', 'Load Game', 'Options', 'Quit')
 

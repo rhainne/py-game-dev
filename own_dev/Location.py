@@ -18,7 +18,8 @@ class Location(Stage):
             "weather": "",
             "dominion_faction": "",
             "political_tendency": "",
-            "people_political_tendency": ""
+            "people_political_tendency": "",
+            "saving_available": False
         }
 
         for (prop, default) in list(attributes.items()):

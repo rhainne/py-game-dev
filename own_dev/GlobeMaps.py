@@ -1,4 +1,4 @@
-from own_dev.Map import *
+from Map import *
 
 # List of contructors
 # Should apply here the same approach as with Ememy data, Region data, or NPCs data

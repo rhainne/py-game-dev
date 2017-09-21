@@ -1,7 +1,6 @@
-from own_dev.Battleground import *
-from own_dev.Regions import *
-from own_dev.pygame_custom_functions import *
-from own_dev.InGameMenu import *
+
+from Battleground import *
+from InGameMenu import *
 
 
 class Character:

@@ -1,10 +1,9 @@
 #!/usr/bin/python
-import sys
-sys.path.insert(0, 'C:/Users/Vanadys3/Git/py-game-dev/')
-from own_dev.GameLine import *
-from own_dev.Character import *
-from own_dev.GlobeMaps import *
-from own_dev.Inventory import Container
+
+from GameLine import *
+from Character import *
+from GlobeMaps import *
+from Inventory import Container
 
 pygame.init()
 

@@ -1,9 +1,10 @@
 import numpy as np
 import random
-from own_dev.Bestiary import *
-from own_dev.Regions import *
-from own_dev.Stage import *
-from own_dev.pygame_custom_functions import *
+
+from Bestiary import *
+from Regions import *
+from Stage import *
+from pygame_custom_functions import *
 
 
 class Battleground(Stage):

@@ -1,4 +1,4 @@
-from own_dev.MDInventory import *
+from MDInventory import *
 
 
 class InBattleCharacter:

@@ -1,4 +1,4 @@
-from own_dev.Stage import *
+from Stage import *
 
 # This class will hold information about the Location.
 # all the enemies that could appear in the area,

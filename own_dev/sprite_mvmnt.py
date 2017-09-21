@@ -1,11 +1,8 @@
-import sys
-sys.path.insert(0, 'C:/Users/Vanadys3/Git/py-game-dev/')
-sys.path.insert(0, '/home/rain/Git/py-game-dev/')
-sys.path.insert(0, 'C:/Users/rain_/PycharmProjects/py-game-dev')
-from own_dev.Character import *
-from own_dev.Inventory import *
-from own_dev.MapCollection import *
-from own_dev.Map import *
+
+from Character import *
+from Inventory import *
+from MapCollection import *
+from Map import *
 
 l_width, l_height = 1024, 500
 SPEED_WALK = 300

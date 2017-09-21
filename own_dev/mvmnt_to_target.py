@@ -1,7 +1,5 @@
-import sys
-sys.path.insert(0, 'C:/Users/Vanadys3/Git/py-game-dev/')
-sys.path.insert(0, '/home/rain/Git/py-game-dev/')
-from own_dev.pygame_custom_functions import *
+
+from pygame_custom_functions import *
 from various_functions.vector2 import Vector2
 
 l_width, l_height = 800, 600

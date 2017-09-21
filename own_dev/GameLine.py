@@ -1,9 +1,7 @@
-import sys
-sys.path.insert(0, 'C:/Users/Vanadys3/Git/py-game-dev/')
-sys.path.insert(0, '/home/rain/Git/py-game-dev/')
-sys.path.insert(0, 'C:/Users/rain_/PycharmProjects/py-game-dev')
-from own_dev.MapCollection import *
-from own_dev.InBattleCharacter import *
+
+from MapCollection import *
+from InBattleCharacter import *
+
 pygame.init()
 
 

@@ -1,5 +1,5 @@
-from own_dev.Character import *
-from own_dev.NPC import *
+from Character import *
+from NPC import *
 
 
 class Shop:

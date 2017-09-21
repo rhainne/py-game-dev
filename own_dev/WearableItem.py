@@ -1,4 +1,4 @@
-from own_dev.Inventory import *
+from Inventory import *
 
 
 class WearableItem(Item):

@@ -1,5 +1,5 @@
-from own_dev.pygame_custom_functions import *
-from own_dev.Regions import *
+from pygame_custom_functions import *
+from Regions import *
 
 
 class InGameMenu:
